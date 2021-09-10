@@ -1,0 +1,16 @@
+---
+# tasks file for passwordlist
+- name: Copy Wordlist
+  tags: [install, wordlist]
+  ansible.builtin.unarchive:
+    src: '{{passwordlist_srcfile}}'
+    dest: '{{ passwordlist_destdir }}'
+
+- name: Replace Passwords
+  tags: [install, wordlist, passwords]
+  ansible.builtin.lineinfile:
+    path: '{{ passwordlist_destdir }}/{{ passwordlist_destfile }}'
+    regexp: '{{item.src}}'
+    line: '{{item.dest}}'
+  with_items: "{{ passwordlist_replace }}"
+

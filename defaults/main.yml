@@ -1,0 +1,8 @@
+---
+# defaults file for passwordlist
+passwordlist_srcfile: rockyou.tar.gz
+passwordlist_destfile: 'rockyou.txt'
+passwordlist_destdir: '/var/www/html'
+passwordlist_replace:
+        - src: '^abc123$'
+          dest: 'AMINERWASHERE'
