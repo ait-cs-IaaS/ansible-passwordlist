@@ -3,6 +3,7 @@
 - name: Copy Wordlist
   tags: [install, wordlist]
   ansible.builtin.unarchive:
+    mode: '644'
     src: '{{passwordlist_srcfile}}'
     dest: '{{ passwordlist_destdir }}'
 
